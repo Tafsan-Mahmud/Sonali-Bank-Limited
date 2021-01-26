@@ -1,0 +1,28 @@
+body{
+    padding: 100px;
+}
+.submit-area{
+    margin-top: 60px;
+    padding: 40px;
+    border-radius:13px ;
+    box-shadow: 5px 5px 25px gray;
+}
+#transition-area{
+
+    display:none;
+}
+.diposit{
+    background-color: indigo;
+}
+.withdraw{
+    background-color: lightsalmon;
+}
+.balance{
+    background-color:orange;
+}
+.margin{
+    margin: 0 20px;
+    color: white;
+    border-radius: 10px;
+    padding: 25px;
+}

@@ -37,7 +37,7 @@
             <div class="col-md-4">
                 <div class="withdraw margin">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="current-withdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -88,7 +88,10 @@
         dipositBtn.addEventListener('click', function () {
             const dipositNumber = getinputNumber('dipositAmmount');
 
+            updatSpanText('current-diposit', dipositNumber);
+            updatSpanText('current-balance', dipositNumber);
 
+            document.getElementById('dipositAmmount').value = "";
 
 
             //menual mathod!!!!!!!!!!!!!
@@ -107,12 +110,7 @@
             // const currentBalanceNumber = parseFloat(currentBalance);
             // const totalBalance = dipositNumber + currentBalanceNumber ;
             // document.getElementById('current-balance').innerText = totalBalance ;
-
-
-
-            updatSpanText('current-diposit', dipositNumber);
-            updatSpanText('current-balance', dipositNumber);
-            document.getElementById('dipositAmmount').value = "";
+           
         })
 
         // withdraw button evnet handler ----------------------------------
@@ -122,7 +120,9 @@
         const withdrawBtn = document.getElementById('addWithdraw');
         withdrawBtn.addEventListener('click', function () {
             const withdrowNumber = getinputNumber('withdrawAmmount');
-            console.log(withdrowNumber);
+            updatSpanText('current-withdraw', withdrowNumber);
+            updatSpanText('current-balance', -1 * withdrowNumber);
+            document.getElementById('withdrawAmmount').value = "";
 
 
             //maneul mathod !!!!!!!!!
@@ -143,10 +143,10 @@
         // function shortcut mathod!!!!!!!!!!!!!!! 
         // function mathod puropori bujhi nai pore bujhe felte hobe 
 
-        function updatSpanText(id, dipositNumber) {
+        function updatSpanText(id, addedNumber) {
             const current = document.getElementById(id).innerText;
             const currentNumber = parseFloat(current);
-            const totalAmount = dipositNumber + currentNumber;
+            const totalAmount = addedNumber + currentNumber;
             document.getElementById(id).innerText = totalAmount;
         }
 

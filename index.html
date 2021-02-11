@@ -88,12 +88,18 @@
         dipositBtn.addEventListener('click', function () {
             const dipositNumber = getinputNumber('dipositAmmount');
 
+            if( dipositNumber < 0 || dipositNumber =='' ){
+                alert('nagetive number is not allowed')
+            }
+            else{
             updatSpanText('current-diposit', dipositNumber);
             updatSpanText('current-balance', dipositNumber);
 
             document.getElementById('dipositAmmount').value = "";
+            }
+           
 
-
+        })
             //menual mathod!!!!!!!!!!!!!
 
             // const dipositAmmount = document.getElementById('dipositAmmount').value;
@@ -110,8 +116,8 @@
             // const currentBalanceNumber = parseFloat(currentBalance);
             // const totalBalance = dipositNumber + currentBalanceNumber ;
             // document.getElementById('current-balance').innerText = totalBalance ;
-           
-        })
+
+       
 
         // withdraw button evnet handler ----------------------------------
 
@@ -120,10 +126,14 @@
         const withdrawBtn = document.getElementById('addWithdraw');
         withdrawBtn.addEventListener('click', function () {
             const withdrowNumber = getinputNumber('withdrawAmmount');
-            updatSpanText('current-withdraw', withdrowNumber);
+            if( withdrowNumber < 0 || withdrowNumber == ''){
+                alert ('error alirt')
+            }
+            else{
+                updatSpanText('current-withdraw', withdrowNumber);
             updatSpanText('current-balance', -1 * withdrowNumber);
             document.getElementById('withdrawAmmount').value = "";
-
+            }
 
             //maneul mathod !!!!!!!!!
             // const withdrawAmmount = document.getElementById('withdrawAmmount').value;
@@ -132,11 +142,14 @@
         })
         //function shortcut mathod !!!!!!
         function getinputNumber(id) {
-
             const ammount = document.getElementById(id).value;
-            const ammountNumber = parseFloat(ammount);
+            if(ammount !== ''){
+                const ammountNumber = parseFloat(ammount);
             return ammountNumber;
-           
+            }
+            else{
+                return 0;
+            }
         }
 
 
